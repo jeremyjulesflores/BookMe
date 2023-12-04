@@ -2,6 +2,7 @@ import { useState } from "react";;
 import { close, logo, menu } from "../assets";
 import { navLinks } from "../constants";
 
+
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
           <li
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
-              active === nav.title ? "text-gray-500" : "text-gray-700"
+              active === nav.title ? "text-white" : "text-dimWhite"
             } ${nav.title === "Login" ? "text-indigo-500" : ""} ${
               index === navLinks.length - 1 ? "mr-0" : "mr-10"
             }`}
