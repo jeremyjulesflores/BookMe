@@ -18,7 +18,7 @@ const FeatureCard = ({ icon, title, content, index }) => (
   </div>
 );
 
-const Business = () =>  (
+const Enroll = () =>  (
   <section id="enroll" className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
@@ -29,7 +29,7 @@ const Business = () =>  (
         With BookMe, you can focus on improving your business while we worry about you getting booked. Put yourself on the market now!
       </p>
 
-      <Button styles={`mt-10`} text ={'Enroll your business'} />
+      <Button styles={`mt-10`} text ={'Enroll your business'} link={'/signup'}/>
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>
@@ -40,4 +40,4 @@ const Business = () =>  (
   </section>
 );
 
-export default Business;
+export default Enroll;

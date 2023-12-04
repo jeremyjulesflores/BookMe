@@ -1,9 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Button = ({ styles, text }) => (
-  <button type="button" className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary rounded-[10px] outline-none bg-gray-500  hover:bg-gray-600 ${styles}`}>
-    {text}
-  </button>
-);
+const Button = ({ styles, text, link }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    // Navigate to the specified link
+    navigate(link);
+  };
+
+  return (
+    <button
+      type="button"
+      className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary rounded-[10px] outline-none bg-gray-500  hover:bg-gray-600 ${styles}`}
+      onClick={handleClick}
+    >
+      {text}
+    </button>
+  );
+};
 
 export default Button;
