@@ -17,5 +17,8 @@
   - Home button in Log-In and Sign up Pages
   - AOS
 
+# Resources
+  - https://www.loginradius.com/blog/engineering/guest-post/modern-login-signup-form-tailwindcss-react/
+  - https://www.youtube.com/watch?v=_oO4Qi5aVZs&t=7s
 
 
