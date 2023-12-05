@@ -1,12 +1,19 @@
 import styles from "../style";
-import { discount, sample01, sample02, sample03, sample04} from "../assets";
+import { sample01, sample02, sample03, sample04} from "../assets";
 import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { useEffect } from "react";
 
 const images = [sample01, sample02, sample03, sample04];
 
 const Hero = () => {
+
+  useEffect(() => {
+    AOS.init();
+  }, [])
   const settings = {
     dots: true,
     infinite: true,
@@ -21,14 +28,14 @@ const Hero = () => {
       <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
        
 
-        <div className="flex flex-row justify-between items-center w-full">
+        <div className="flex flex-row justify-between items-center w-full" data-aos="fade-right" data-aos-duration="1000">
           <h1 className="flex-1 font-poppins font-semibold ss:text-[72px] text-[52px] text-gray-400 ss:leading-[100.8px] leading-[75px]">
             Book <br className="sm:block hidden" />{" "}
             <span className="text-gray-900">Anything,</span>{" "}
           </h1>
         </div>
 
-        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-gray-400 ss:leading-[100.8px] leading-[75px] w-full">
+        <h1 className="font-poppins font-semibold ss:text-[68px] text-[52px] text-gray-400 ss:leading-[100.8px] leading-[75px] w-full" data-aos="fade-right" data-aos-duration="3000">
           Anytime
         </h1>
         <p className={`${styles.paragraph} max-w-[470px] mt-5 text-gray-800`}>
@@ -36,7 +43,7 @@ const Hero = () => {
         </p>
       </div>
 
-      <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`}>
+      <div className={`flex-1 flex ${styles.flexCenter} md:my-0 my-10 relative`} data-aos = "zoom-in" data-aos-duration="2500">
         {/* <div className="w-[100%] h-[100%] relative z-[5]">
           <Slider {...settings} >
             {images.map((image, index) => (
