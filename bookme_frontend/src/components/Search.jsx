@@ -13,7 +13,7 @@ const Search = () => {
   return(
     <section id="search" className={layout.sectionReverse}>
       <div className={layout.sectionImgReverse}>
-        <img src={sample04} alt="sample" className="w-[100%] h-[100%] relative z-[5]" data-aos="zoom-in" duration = "1500"/>
+        <img src={sample04} alt="sample" className="w-[100%] h-[100%] relative z-[5]" data-aos="zoom-in" duration = "3000"/>
 
         {/* gradient start */}
         <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" data-aos="zoom-in" duration = "1500"/>
@@ -21,7 +21,7 @@ const Search = () => {
         {/* gradient end */}
       </div>
 
-      <div className={layout.sectionInfo}>
+      <div className={layout.sectionInfo} data-aos="fade-left">
         <h2 className={styles.heading2}>
           Look for different services  <br className="sm:block hidden" /> offered here!
         </h2>
