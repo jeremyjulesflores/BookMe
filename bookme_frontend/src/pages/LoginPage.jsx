@@ -3,6 +3,7 @@ import Login from "../components/Login-Signup/Login"
 import styles from "../style"
 import { sample01 } from "../assets"
 import Button from "../components/Button"
+import GoogleLogInButton from "../components/Login-Signup/GoogleLogInButton"
 
 export default function LoginPage(){
     return(
@@ -25,7 +26,7 @@ export default function LoginPage(){
                         {/* gradient end */}
                     </div>
 
-                    <div className={`flex-1 ${styles.flexStart} flex-col xl:px-0 sm:px-16 px-6`}>
+                    <div className={`flex-1 flex-col xl:px-0 sm:px-16 px-6 ${styles.flexCenter}`}>
                         <div className="justify-between items-center w-full">
                         <Header
                                 heading="Welcome Back :)"
@@ -33,7 +34,11 @@ export default function LoginPage(){
                                 linkName="Signup"
                                 linkUrl="/signup"
                             />
+                        <div className={`${styles.flexCenter} mt-4`}>
+                            <GoogleLogInButton />
+                        </div>
                         <Login />
+                        
                         </div>   
                     </div>
                 </div>
