@@ -37,7 +37,7 @@ const Enroll = () =>  {
           With BookMe, you can focus on improving your business while we worry about you getting booked. Put yourself on the market now!
         </p>
 
-        <Button styles={`mt-10`} text ={'Enroll your business'} link={'/signup'}/>
+        <Button styles={`mt-10 bg-gray-500  hover:bg-gray-600 `} text ={'Enroll your business'} link={'/signup'}/>
       </div>
 
       <div className={`${layout.sectionImg} flex-col`}>

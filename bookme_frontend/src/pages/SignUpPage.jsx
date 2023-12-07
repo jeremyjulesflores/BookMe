@@ -2,6 +2,8 @@ import Header from "../components/Login-Signup/Header"
 import styles from "../style"
 import { sample02 } from "../assets"
 import Signup from "../components/Login-Signup/Signup"
+import TextLink from "../components/Login-Signup/TextLink"
+
 
 export default function SignUpPage(){
     return(
@@ -28,6 +30,10 @@ export default function SignUpPage(){
                                 linkUrl="/login"
                             />
                         <Signup/>
+                        {/* Button Back to Landing page */}
+                        <TextLink
+                            page="Landing"
+                        />
                         </div>   
                     </div>
                 </div>

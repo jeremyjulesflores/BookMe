@@ -1,5 +1,32 @@
 import {facebook, instagram, linkedin, twitter, star  } from "../assets";
 
+export const textLinkFields=[
+  {
+    page:"Landing",
+    details:{
+      paragraph:"Want to learn more about us?",
+      linkName:"Learn More",
+      linkUrl:"/"
+    }
+  },
+  {
+    page:"Signup",
+    details:{
+      paragraph:"Don't have an account yet?",
+      linkName:"Signup",
+      linkUrl:"/signup"
+    }
+  },
+  {
+    page:"Login",
+    details:{
+      paragraph:"Already have an account?",
+      linkName:"Login",
+      linkUrl:"/login"
+    }
+  }
+]
+
 export const loginFields=[
   {
       labelText:"Email address",
