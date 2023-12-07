@@ -12,7 +12,7 @@ const Button = ({ styles, text, link }) => {
   return (
     <button
       type="button"
-      className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary rounded-[10px] outline-none bg-gray-500  hover:bg-gray-600 ${styles}`}
+      className={`py-4 px-6 font-poppins font-medium text-[18px] text-primary rounded-[10px] outline-none ${styles}`}
       onClick={handleClick}
     >
       {text}
