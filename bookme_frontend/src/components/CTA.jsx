@@ -11,7 +11,7 @@ const CTA = () => (
     </div>
 
     <div className={`${styles.flexCenter} sm:ml-10 ml-0 sm:mt-0 mt-10`}>
-      <Button text={'Enroll your business'} link={'/signup'} />
+      <Button text={'Enroll your business'} link={'/signup'} styles={'bg-gray-500  hover:bg-gray-600 '}/>
     </div>
   </section>
 );
