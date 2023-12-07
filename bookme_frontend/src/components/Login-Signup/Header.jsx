@@ -4,7 +4,10 @@ export default function Header({
     heading,
     paragraph,
     linkName,
-    linkUrl="#"
+    linkUrl="#",
+    paragraph2,
+    linkName2,
+    linkUrl2='#'
 }){
     return(
         <div className="mb-10">
@@ -17,10 +20,16 @@ export default function Header({
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                 {heading}
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600 mt-5">
+            <p className="text-center text-sm text-gray-600 mt-5">
             {paragraph} {' '}
             <Link to={linkUrl} className="font-medium text-purple-600 hover:text-purple-500">
                 {linkName}
+            </Link>
+            </p>
+            <p className="text-center text-sm text-gray-600 ">
+            {paragraph2} {' '}
+            <Link to={linkUrl2} className="font-medium text-purple-600 hover:text-purple-500">
+                {linkName2}
             </Link>
             </p>
         </div>
