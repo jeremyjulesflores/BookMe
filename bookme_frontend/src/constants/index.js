@@ -52,15 +52,25 @@ export const loginFields=[
 
 export const signupFields=[
   {
-      labelText:"Name",
-      labelFor:"name",
-      id:"name",
-      name:"name",
+      labelText:"First Name",
+      labelFor:"first-name",
+      id:"first-name",
+      name:"first-name",
       type:"text",
-      autoComplete:"name",
+      autoComplete:"first-name",
       isRequired:true,
-      placeholder:"Name"   
+      placeholder:"First Name"   
   },
+  {
+    labelText:"Last Name",
+    labelFor:"last-name",
+    id:"last-name",
+    name:"last-name",
+    type:"text",
+    autoComplete:"last-name",
+    isRequired:true,
+    placeholder:"Last Name"   
+},
   {
       labelText:"Email address",
       labelFor:"email-address",
@@ -138,7 +148,7 @@ export const features = [
 
 export const footerLinks = [
   {
-    title: "Sample",
+    title: "Sampl1e",
     links: [
       {
         name: "Content",
@@ -159,31 +169,31 @@ export const footerLinks = [
     ],
   },
   {
-    title: "Sample",
+    title: "Sample2",
     links: [
       {
-        name: "Sample",
+        name: "Sample1",
         link: "https://www.sample.com",
       },
       {
-        name: "Sample",
+        name: "Sample2",
         link: "https://www.sample.com",
       },
       {
-        name: "Sample",
+        name: "Sample3",
         link: "https://www.sample.com",
       },
     ],
   },
   {
-    title: "Sample",
+    title: "Sample3",
     links: [
       {
-        name: "Sample",
+        name: "Sample1",
         link: "https://www.sample.com",
       },
       {
-        name: "Sample",
+        name: "Sample2",
         link: "https://www.sample.com",
       },
     ],
