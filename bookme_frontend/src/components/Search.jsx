@@ -25,7 +25,7 @@ const Search = () => {
         <h2 className={styles.heading2}>
           Look for different services  <br className="sm:block hidden" /> offered here!
         </h2>
-        <Button styles={`mt-10`} text ={'Look for services'} />
+        <Button styles={`mt-10 bg-gray-500  hover:bg-gray-600 `} text ={'Look for services'} />
 
 
       </div>
