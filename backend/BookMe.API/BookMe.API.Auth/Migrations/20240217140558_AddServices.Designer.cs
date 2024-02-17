@@ -3,6 +3,7 @@ using System;
 using BookMe.API.Auth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookMe.API.Auth.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240217140558_AddServices")]
+    partial class AddServices
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,14 +80,14 @@ namespace BookMe.API.Auth.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<TimeOnly>("TimeClose")
-                        .HasColumnType("time(6)");
-
-                    b.Property<TimeOnly>("TimeOpen")
-                        .HasColumnType("time(6)");
-
-                    b.Property<Guid?>("UserId")
+                    b.Property<Guid?>("ServiceMembershipId")
                         .HasColumnType("char(36)");
+
+                    b.Property<DateTime>("TimeClose")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("TimeOpen")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<bool>("hasAutoConfirmation")
                         .HasColumnType("tinyint(1)");
@@ -94,9 +97,25 @@ namespace BookMe.API.Auth.Migrations
 
                     b.HasKey("ServiceId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("ServiceMembershipId");
 
                     b.ToTable("Service");
+                });
+
+            modelBuilder.Entity("BookMe.API.Auth.Entities.ServiceMembership", b =>
+                {
+                    b.Property<Guid>("ServiceMembershipId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)");
+
+                    b.Property<Guid?>("UserId")
+                        .HasColumnType("char(36)");
+
+                    b.HasKey("ServiceMembershipId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ServicesMembership");
                 });
 
             modelBuilder.Entity("BookMe.API.Auth.Entities.User", b =>
@@ -142,8 +161,15 @@ namespace BookMe.API.Auth.Migrations
 
             modelBuilder.Entity("BookMe.API.Auth.Entities.Service", b =>
                 {
-                    b.HasOne("BookMe.API.Auth.Entities.User", null)
+                    b.HasOne("BookMe.API.Auth.Entities.ServiceMembership", null)
                         .WithMany("Services")
+                        .HasForeignKey("ServiceMembershipId");
+                });
+
+            modelBuilder.Entity("BookMe.API.Auth.Entities.ServiceMembership", b =>
+                {
+                    b.HasOne("BookMe.API.Auth.Entities.User", null)
+                        .WithMany("Memberships")
                         .HasForeignKey("UserId");
                 });
 
@@ -152,9 +178,14 @@ namespace BookMe.API.Auth.Migrations
                     b.Navigation("Bookings");
                 });
 
-            modelBuilder.Entity("BookMe.API.Auth.Entities.User", b =>
+            modelBuilder.Entity("BookMe.API.Auth.Entities.ServiceMembership", b =>
                 {
                     b.Navigation("Services");
+                });
+
+            modelBuilder.Entity("BookMe.API.Auth.Entities.User", b =>
+                {
+                    b.Navigation("Memberships");
                 });
 #pragma warning restore 612, 618
         }

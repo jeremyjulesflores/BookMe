@@ -64,7 +64,7 @@ namespace BookMe.API.Auth.Services
 
         async Task<bool> VerifyPasswordAsync(string password, string hash, byte[] salt)
         {
-            var hashToCompare = Rfc2898DeriveBytes.Pbkdf2(password, salt, _iterations, hashAlgorithm, _keySize);
+            var hashToCompare = await Task.Run(() => Rfc2898DeriveBytes.Pbkdf2(password, salt, _iterations, hashAlgorithm, _keySize));
 
             return CryptographicOperations.FixedTimeEquals(hashToCompare, Convert.FromHexString(hash));
         }

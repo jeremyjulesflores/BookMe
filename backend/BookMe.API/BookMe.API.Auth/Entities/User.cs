@@ -18,6 +18,7 @@ namespace BookMe.API.Auth.Entities
         [Required]
         public byte[] PasswordSalt { get; set; } = new byte[32];
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
+        public List<Service> Services { get; set; } = new List<Service>();
 
     }
 }

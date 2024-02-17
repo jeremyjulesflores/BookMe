@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMe.API.Auth", "BookMe.API.Auth\BookMe.API.Auth.csproj", "{D2832B89-7DE2-4D16-A1D9-85E51758DE3B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookMe.API.Test", "BookMe.API.Test\BookMe.API.Test.csproj", "{5A6EB3C1-A1FB-4B84-8D74-50C5170588EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookMe.API.Test", "BookMe.API.Test\BookMe.API.Test.csproj", "{5A6EB3C1-A1FB-4B84-8D74-50C5170588EC}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EE69D2D6-DEC9-4DB4-87A6-214F33D346B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5A6EB3C1-A1FB-4B84-8D74-50C5170588EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A6EB3C1-A1FB-4B84-8D74-50C5170588EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A6EB3C1-A1FB-4B84-8D74-50C5170588EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE69D2D6-DEC9-4DB4-87A6-214F33D346B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE69D2D6-DEC9-4DB4-87A6-214F33D346B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE69D2D6-DEC9-4DB4-87A6-214F33D346B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE69D2D6-DEC9-4DB4-87A6-214F33D346B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

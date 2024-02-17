@@ -3,6 +3,7 @@ using System;
 using BookMe.API.Auth;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BookMe.API.Auth.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20240217143820_RemoveServiceMembership")]
+    partial class RemoveServiceMembership
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,11 +80,11 @@ namespace BookMe.API.Auth.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<TimeOnly>("TimeClose")
-                        .HasColumnType("time(6)");
+                    b.Property<DateTime>("TimeClose")
+                        .HasColumnType("datetime(6)");
 
-                    b.Property<TimeOnly>("TimeOpen")
-                        .HasColumnType("time(6)");
+                    b.Property<DateTime>("TimeOpen")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<Guid?>("UserId")
                         .HasColumnType("char(36)");
