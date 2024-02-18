@@ -21,7 +21,7 @@ namespace BookMe.API.Auth.Controllers
         }
 
 
-        [HttpGet("/{userId}")]
+        [HttpGet("{userId}")]
         public async Task<IActionResult> ListAsync(Guid userId)
         {
             try
@@ -41,7 +41,7 @@ namespace BookMe.API.Auth.Controllers
             }
         }
 
-        [HttpPost("/{userId}")]
+        [HttpPost("{userId}")]
         public async Task<IActionResult> CreateAsync(Guid userId, [FromBody]ServiceCreationViewModel serviceCreation)
         {
             try

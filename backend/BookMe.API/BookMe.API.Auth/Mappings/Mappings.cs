@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using BookMe.API.Auth.Entities;
 using BookMe.API.Auth.Models;
+using BookMe.API.Auth.Models.Booking;
 using BookMe.API.Auth.Models.Service;
 
 namespace BookMe.API.Auth
@@ -15,6 +16,9 @@ namespace BookMe.API.Auth
 
             CreateMap<Service, ServiceCreationViewModel>();
             CreateMap<ServiceCreationViewModel, Service>();
+
+            CreateMap<Booking, BookingCreationViewModel>();
+            CreateMap<BookingCreationViewModel, Booking>();
         }
     }
 }

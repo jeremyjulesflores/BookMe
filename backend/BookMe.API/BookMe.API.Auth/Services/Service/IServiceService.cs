@@ -6,6 +6,7 @@ namespace BookMe.API.Auth.Services.Service
     public interface IServiceService
     {
         public Task<IEnumerable<Entities.Service>> ListAsync(Guid userId);
-        public Task<Entities.Service> CreateAsync(Guid userId, ServiceCreationViewModel serviceCreation); 
+        public Task<Entities.Service> CreateAsync(Guid userId, ServiceCreationViewModel serviceCreation);
+        public Task<Entities.Service> GetAsync(Guid serviceId);
     }
 }

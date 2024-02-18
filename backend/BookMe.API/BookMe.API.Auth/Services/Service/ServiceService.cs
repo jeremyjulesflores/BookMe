@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using BookMe.API.Auth.Models.Service;
 using BookMe.API.Auth.Services.Interfaces;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 namespace BookMe.API.Auth.Services.Service
@@ -25,14 +24,14 @@ namespace BookMe.API.Auth.Services.Service
             if(user == null)
             {
                 // Make custom exceptions
-                throw new InvalidOperationException();
+                throw new Exception();
             }
 
             var service = _mapper.Map<Entities.Service>(serviceCreation);
 
             if(service  == null)
             {
-                throw new InvalidOperationException();  
+                throw new Exception();
             }
 
             user.Services.Add(service);
@@ -47,7 +46,30 @@ namespace BookMe.API.Auth.Services.Service
 
         public async Task<IEnumerable<Entities.Service>> ListAsync(Guid userId)
         {
-            return await _applicationContext.Service.ToListAsync();
+            var user = await _applicationContext.User
+               .Include(u => u.Services) // Include services for eager loading
+               .FirstOrDefaultAsync(u => u.Id == userId);
+
+            if(user == null)
+            {
+                throw new Exception();
+            }
+
+
+            return user.Services;
+
+        }
+
+         async Task<Entities.Service> IServiceService.GetAsync(Guid serviceId)
+        {
+            var service = await _applicationContext.Service.FindAsync(serviceId);
+
+            if(service == null)
+            {
+                throw new Exception();
+            }
+
+            return service;
         }
     }
 }
