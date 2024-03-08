@@ -70,6 +70,29 @@ namespace BookMe.API.Auth.Controllers
                 return StatusCode(500, "Something went wrong");
             }
         }
+        /// <summary>
+        /// Gets a specific user based on its email
+        /// </summary>
+        //[HttpGet("{email}")]
+        //public async Task<IActionResult> GetByEmailAsync(string email)
+        //{
+        //    try
+        //    {
+        //        var user = await _userService.GetByEmailAsync(email);
+
+        //        if (user == null)
+        //        {
+        //            return NotFound("User not found");
+        //        }
+        //        return Ok(user);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Response.StatusCode = 500;
+        //        _logger.LogError(ex, $"UserController/GetEmailAsync/{email}");
+        //        return StatusCode(500, "Something went wrong");
+        //    }
+        //}
 
         /// <summary>
         /// Creates a new user

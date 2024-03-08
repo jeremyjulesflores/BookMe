@@ -30,7 +30,7 @@ namespace BookMe.API.Auth.Services
 
         public async Task<User?> GetAsync(Guid id)
         {
-            return await _applicationContext.User.FirstOrDefaultAsync(i => i.Id == id);
+            return await _applicationContext.User.Include(u => u.Services).FirstOrDefaultAsync(i => i.Id == id);
         }
 
 
@@ -44,7 +44,6 @@ namespace BookMe.API.Auth.Services
 
         public async Task<IEnumerable<User?>> ListAsync()
         {
-            //Not using Task since Task class is used to represent an async operation that returns a single value
             return await _applicationContext.User.ToListAsync();
         }
 

@@ -3,6 +3,8 @@ import { loginFields } from "../../constants";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
+import {useNavigate} from 'react-router-dom'
+import axios from 'axios'
 
 const fields=loginFields;
 let fieldsState = {};
@@ -10,9 +12,13 @@ fields.forEach(field=>fieldsState[field.id]='');
 
 export default function Login(){
     const [loginState,setLoginState]=useState(fieldsState);
+    const [loginSuccess, setLoginSuccess] = useState(false);
+    const [loginFail, setLoginFail] = useState(false);
+    const navigate = useNavigate();
 
     const handleChange=(e)=>{
-        setLoginState({...loginState,[e.target.id]:e.target.value})
+        const { id, value } = e.target;
+        setLoginState({...loginState,[id]:value})
     }
 
     const handleSubmit=(e)=>{
@@ -21,8 +27,40 @@ export default function Login(){
     }
 
     //Handle Login API Integration here
-    const authenticateUser = () =>{
+    const authenticateUser = async() =>{
+        try{
+            console.log({
+                Email : loginState.emailaddress,
+                Password : loginState.password
+            })
+            await axios.post('https://localhost:44311/api/Auth', {
+                Email: loginState.emailaddress,
+                Password: loginState.password
+            },
+            {
+                headers:{
+                    'Content-Type' : 'application/json'
+                }
+            }).then (response =>{
+                if (response.status == 200){
+                    const token = response.data;
+                    setLoginSuccess(true);
+                    navigate('/login-success');
+                    console.log("Success");
+                    
+                }else{
+                    setLoginFail(true);
+                    console.log("Fail");
+                    console.log(response);
+                }
+            })
+        
+                
+        
 
+        }catch(error){
+            console.error('Error Logging in', error);
+        }
     }
 
     return(
